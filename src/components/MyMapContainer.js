@@ -7,9 +7,10 @@ class MyMapContainer extends Component {
 
         return(
             <MapContainer
-                center={[40.7317535212683, -73.99685430908403]}
-                zoom={9}
+                center={[0, 0]}
+                zoom={3}
                 scrollWheelZoom={false}
+                className='harta'
                 
                 >
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />

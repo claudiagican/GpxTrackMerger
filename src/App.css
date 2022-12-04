@@ -1,0 +1,15 @@
+body{
+    margin: 0;
+}
+
+#root{
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.harta{
+    width: auto;
+    flex: 1;
+}
