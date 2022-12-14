@@ -66,7 +66,7 @@ class MyMapContainer extends Component {
                 center={[47.37635575792042, 9.548300497691613]} 
                 zoom={5}
                 scrollWheelZoom={true} 
-                className='harta' >
+                className='map' >
                 
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                 

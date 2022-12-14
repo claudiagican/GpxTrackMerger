@@ -1,13 +1,15 @@
 import React from "react";
 import MyMapContainer from "./components/MyMapContainer";
+import TrackList from "./components/TrackList";
 
 const App = () =>{
     return (
         <>
             <h1>
-                Welcome to GPX Track Merger.
+                GPX Tools
             </h1>
             <MyMapContainer/>
+            <TrackList/>
         </>
     )
 }
