@@ -1,7 +1,7 @@
 import React from "react";
-import classes from "./DragAndDropFile.css"
+import classes from "./DragAndDropZone.css"
 
-function DragAndDropFile(props) {
+function DragAndDropZone(props) {
 
   const [dragActive, setDragActive] = React.useState(false);
 
@@ -72,4 +72,4 @@ function DragAndDropFile(props) {
   );
 };
 
-export default DragAndDropFile;
+export default DragAndDropZone;

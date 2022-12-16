@@ -1,9 +1,10 @@
 import 'leaflet/dist/leaflet.css'
+import classes from "./Map.css"
 import React, { Component } from 'react'
 import { MapContainer, Polyline, TileLayer } from 'react-leaflet'
 import gpxParser from 'gpxparser'
 
-class MyMapContainer extends Component {
+class Map extends Component {
 
     lat = 0; long = 0;
     positions = [];
@@ -84,4 +85,4 @@ class MyMapContainer extends Component {
     };
 }
 
-export default MyMapContainer; 
+export default Map; 
