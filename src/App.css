@@ -11,6 +11,6 @@ body{
 }
 
 .map{
-    width: auto;
+    width: 700px;
     flex: 1;
 }

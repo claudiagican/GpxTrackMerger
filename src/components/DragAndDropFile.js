@@ -1,6 +1,7 @@
 import React from "react";
+import classes from "./DragAndDropFile.css"
 
-function DragAndDropFile() {
+function DragAndDropFile(props) {
 
   const [dragActive, setDragActive] = React.useState(false);
 
@@ -18,7 +19,6 @@ function DragAndDropFile() {
     }
   };
 
-
   const handleDrop = function (e) {
     e.preventDefault();
     e.stopPropagation();
@@ -33,6 +33,7 @@ function DragAndDropFile() {
       reader.onload = function (e) {
         console.log(reader.result);
         setFileContent(reader.result);
+        props.onDroppedFile(reader.result); 
         // console.log(file);
       }
       reader.readAsText(e.dataTransfer.files[0]);

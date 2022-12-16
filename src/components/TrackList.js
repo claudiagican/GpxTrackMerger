@@ -1,13 +1,11 @@
-import classes from "./DragAndDropFile.css"
-import DragAndDropFile from "./DragAndDropFile"
+import React, { Component } from 'react'
 
-function TrackList(){
-    return(
-        <div className={classes.mainDiv} style={{ width: '400px' }}>
-            
-            <DragAndDropFile />
-        </div>
-    )
+class TrackList extends Component{
+    render(){
+        return
+            <div></div>
+        
+    }
 }
 
 export default TrackList;
