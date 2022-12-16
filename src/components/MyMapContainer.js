@@ -72,6 +72,12 @@ class MyMapContainer extends Component {
                 
                 <Polyline pathOptions={{ fillColor: 'red', color: 'blue' }} 
 	                positions={this.state.positions}
+                    
+                />
+
+                <Polyline pathOptions={{ fillColor: 'green', color: 'yellow' }} 
+	                positions={this.state.positions}
+                    
                 />
             </MapContainer>
         )
