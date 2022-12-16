@@ -15,12 +15,16 @@ class App extends Component {
     render (){
         return(
             <>
-                <h1>
-                    GPX Tools
-                </h1>
-                <MyMapContainer/>
-                <TrackList/>
-                <DragAndDropFile onDroppedFile={this.onDroppedFile}/>
+                <h1>GPX Tools</h1>
+                <div className="map-list-container">
+                    <div className="map-container">
+                        <MyMapContainer/>
+                    </div>
+                    <div className="list-container">
+                        <TrackList/>
+                        <DragAndDropFile onDroppedFile={this.onDroppedFile}/>
+                    </div>
+                </div>
             </>
         )
     }

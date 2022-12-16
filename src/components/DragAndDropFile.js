@@ -57,7 +57,7 @@ function DragAndDropFile(props) {
 
   return (
     <>
-      <div id="gpxList"> {fileContent} s</div>
+      <div id="gpxList"> {fileContent} </div>
       <form id="form-file-upload" onDragEnter={handleDrag} onSubmit={(e) => e.preventDefault()}>
         <input ref={inputRef} type="file" id="input-file-upload" multiple={true} onChange={handleWithClick} />
         <label id="label-file-upload" htmlFor="input-file-upload" className={dragActive ? "drag-active" : ""}>
