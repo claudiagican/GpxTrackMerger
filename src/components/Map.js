@@ -30,37 +30,28 @@ class Map extends Component {
         
     }
 
-    httpGet(theUrl)
-    {
-      var xmlHttp = null;
-  
-      xmlHttp = new XMLHttpRequest();
-      xmlHttp.open( "GET", theUrl, false );
-      xmlHttp.send( null );
-      return xmlHttp.responseText;
-    };
+    loadGPX(gpxTrack){
 
-    loadGPX(){
+        console.log("loadGPX");
 
-        var reader = new FileReader();
-        var url = 'http://localhost:3000/Afternoon_Run.gpx';
+        if (gpxTrack == ''){
+            return;
+        }
         
-        var contentGpxFile = this.httpGet(url);
-        
-        var gpx = new gpxParser();
-        gpx.parse(contentGpxFile);
-        console.log(gpx);
-        
-        this.positions = gpx.tracks[0].points.map(p => [p.lat, p.lon]);
+        this.positions = gpxTrack.tracks[0].points.map(p => [p.lat, p.lon]);
         this.setState({positions:this.positions});
     }
 
-    async componentDidMount() {
-        this.loadGPX();
-    };
-
     render (){
         console.log(typeof(this.state.lat) + " - " + this.state.long);
+        
+        console.log("map render...");
+        console.log(this.props.track);
+        var points = [];
+        if (this.props.track != null){
+            points = this.props.track.tracks[0].points.map(p => [p.lat, p.lon]);
+        }
+                
         return(
             <MapContainer
                 //center={[this.state.lat, this.state.long]}
@@ -72,14 +63,10 @@ class Map extends Component {
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                 
                 <Polyline pathOptions={{ fillColor: 'red', color: 'blue' }} 
-	                positions={this.state.positions}
+	                positions={points}
                     
                 />
 
-                <Polyline pathOptions={{ fillColor: 'green', color: 'yellow' }} 
-	                positions={this.state.positions}
-                    
-                />
             </MapContainer>
         )
     };

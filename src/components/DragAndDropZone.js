@@ -5,8 +5,6 @@ function DragAndDropZone(props) {
 
   const [dragActive, setDragActive] = React.useState(false);
 
-  const [fileContent, setFileContent] = React.useState("");
-
   const inputRef = React.useRef(null);
 
   const handleDrag = function (e) {
@@ -25,30 +23,29 @@ function DragAndDropZone(props) {
     setDragActive(false);
     
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      //handleFiles(e.dataTransfer.files);
       console.log("handleDrop ");
-      console.log(e.dataTransfer.files[0]);
-      
-      var reader = new FileReader();
-      reader.onload = function (e) {
-        console.log(reader.result);
-        setFileContent(reader.result);
-        props.onDroppedFile(reader.result); 
-        // console.log(file);
-      }
-      reader.readAsText(e.dataTransfer.files[0]);
-
+      handleFile(e.dataTransfer.files[0]);
     }
   };
 
   const handleWithClick = function (e) {
     e.preventDefault();
+
     if (e.target.files && e.target.files[0]) {
-      // handleFiles(e.target.files);
       console.log("handleChange");
-      console.log(e.target.files[0]);
+      handleFile(e.target.files[0]);
     }
   };
+
+  const handleFile = function(file){
+    console.log(file);
+
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      props.onFileDrop(reader.result); 
+    }
+    reader.readAsText(file);
+  }
 
 
   const onButtonClick = () => {
@@ -57,7 +54,6 @@ function DragAndDropZone(props) {
 
   return (
     <>
-      <div id="gpxList"> {fileContent} </div>
       <form id="form-file-upload" onDragEnter={handleDrag} onSubmit={(e) => e.preventDefault()}>
         <input ref={inputRef} type="file" id="input-file-upload" multiple={true} onChange={handleWithClick} />
         <label id="label-file-upload" htmlFor="input-file-upload" className={dragActive ? "drag-active" : ""}>
