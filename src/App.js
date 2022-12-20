@@ -21,7 +21,7 @@ class App extends Component {
                         <Map track={this.state.track}/>
                     </div>
                     <div className="list-container">
-                        <TrackList/>
+                        <TrackList track={this.state.track}/>
                         <DragAndDropZone onFileDrop={this.onFileDrop.bind(this)}/>
                     </div>
                 </div>
