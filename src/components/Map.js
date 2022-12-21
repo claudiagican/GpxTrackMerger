@@ -46,10 +46,10 @@ class Map extends Component {
         console.log(typeof(this.state.lat) + " - " + this.state.long);
         
         console.log("map render...");
-        console.log(this.props.track);
+        console.log(this.props.tracksArray);
         var points = [];
-        if (this.props.track != null){
-            points = this.props.track.tracks[0].points.map(p => [p.lat, p.lon]);
+        if (this.props.tracksArray != null  && this.props.tracksArray != 'undefined'){
+            points = this.props.tracksArray.tracks[0].points.map(p => [p.lat, p.lon]);
         }
                 
         return(

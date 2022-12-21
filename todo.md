@@ -34,8 +34,6 @@
 2. Change messages depending on number of tracks already loaded
 3. 
 _________________
-# DONE
- 
 
 
 _________________

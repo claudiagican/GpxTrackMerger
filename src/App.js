@@ -8,7 +8,7 @@ class App extends Component {
 
     constructor(props){
         super(props);
-        this.state = {track : null};
+        this.state = {trackList : null};
     }
 
     render (){
@@ -18,10 +18,10 @@ class App extends Component {
                 <h1>GPX Tools</h1>
                 <div className="map-list-container">
                     <div className="map-container">
-                        <Map track={this.state.track}/>
+                        <Map tracksArray={this.state.trackList}/>
                     </div>
                     <div className="list-container">
-                        <TrackList track={this.state.track}/>
+                        <TrackList tracksArray={this.state.trackList}/>
                         <DragAndDropZone onFileDrop={this.onFileDrop.bind(this)}/>
                     </div>
                 </div>
@@ -35,7 +35,7 @@ class App extends Component {
         var parsedTrack = new gpxParser();
         parsedTrack.parse(file);
         
-        this.setState({track:parsedTrack});
+        this.setState({trackList:parsedTrack});
     }
 
 }
