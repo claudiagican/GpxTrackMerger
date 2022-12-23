@@ -4,27 +4,24 @@ class TrackList extends Component{
 
     render(){
         console.log("trackList map render...");
-        var info = null;
+        var elemList = null;
         
-        if (this.props.tracksArray != null && this.props.tracksArray !== 'undefined'){
-
-            console.log(this.props.tracksArray.tracks[0]);
-            info = this.props.tracksArray.tracks[0];
+        if (this.props.tracksArray.length != 0){
+           
+            elemList = this.props.tracksArray.map((elem) =>
+            {
+                return(
+                    <li>{elem.tracks[0].name} * {elem.tracks[0].distance.total / 1000}km * {elem.tracks[0].elevation.max}m+</li>
+                )
+            })
         }
 
-        // const listItems = numbers.map((number) =>
-        //     <li>{number}</li>
-        // );
-
         return(
-            <div>Your Tracks here!
+            <div>Drag your GPX tracks here
 
-                {(this.props.tracksArray != null && this.props.tracksArray !== 'undefined') ? (
-                    <ol>
-                        <li>{info.name} * {info.distance.total / 1000}km * {info.elevation.max}m+</li>
-                    </ol>
-                ) : ''                  
-                }
+                <ol>
+                    {elemList}               
+                </ol>
             </div>
         )
         

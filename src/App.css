@@ -24,12 +24,12 @@ html {
 }
 
 .map-container{
-    background-color: red;
+    background-color: rgb(148, 148, 141);
     flex-grow:3;
 }
   
 .list-container{
-    background-color: blue;
+    background-color: rgb(241, 231, 231);
 }
 
 

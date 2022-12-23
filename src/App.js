@@ -8,7 +8,7 @@ class App extends Component {
 
     constructor(props){
         super(props);
-        this.state = {trackList : null};
+        this.state = {trackList : []};
     }
 
     render (){
@@ -34,8 +34,10 @@ class App extends Component {
         
         var parsedTrack = new gpxParser();
         parsedTrack.parse(file);
+
+        this.state.trackList.push(parsedTrack);
         
-        this.setState({trackList:parsedTrack});
+        this.setState({trackList: this.state.trackList});
     }
 
 }

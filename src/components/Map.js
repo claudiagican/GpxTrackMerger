@@ -1,75 +1,67 @@
 import 'leaflet/dist/leaflet.css'
 import classes from "./Map.css"
 import React, { Component } from 'react'
-import { MapContainer, Polyline, TileLayer } from 'react-leaflet'
+import { MapContainer, Polyline, TileLayer, useMap } from 'react-leaflet'
 import gpxParser from 'gpxparser'
 
 class Map extends Component {
 
-    lat = 0; long = 0;
-    positions = [];
-    
+    constructor(props){
+        super(props);
+        this.state = {lat:0, long:0};
+        this.getLocation();
+    }
+
     getLocation() {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(position => {
-              this.lat =  position.coords.latitude;
-              this.long = position.coords.longitude;
-              console.log(this.lat + " " + this.long);
-              this.setState({lat:this.lat, long:this.long});
+              this.setState({lat:position.coords.latitude, long:position.coords.longitude});
           });
-        } else { 
-          this.lat =  0;
-          this.long = 0;
-        }
+        } 
     };
 
-    constructor(props){
-        super(props);
-        this.state = {lat:0, long:0, positions:[]};
-        this.getLocation();
-        
-    }
-
-    loadGPX(gpxTrack){
-
-        console.log("loadGPX");
-
-        if (gpxTrack == ''){
-            return;
-        }
-        
-        this.positions = gpxTrack.tracks[0].points.map(p => [p.lat, p.lon]);
-        this.setState({positions:this.positions});
-    }
-
     render (){
-        console.log(typeof(this.state.lat) + " - " + this.state.long);
         
         console.log("map render...");
-        console.log(this.props.tracksArray);
+        console.log(this.state.lat + " - " + this.state.long);
+        console.log( this.props.tracksArray);
         var points = [];
-        if (this.props.tracksArray != null  && this.props.tracksArray != 'undefined'){
-            points = this.props.tracksArray.tracks[0].points.map(p => [p.lat, p.lon]);
-        }
+        var polylineList;
+        var colors = ['red', 'blue', 'green', 'yellow'];
+
+        // if (this.props.tracksArray.length != 0){
+
+            polylineList = this.props.tracksArray.map((elem, index) =>
+            {
+                points = elem.tracks[0].points.map(p => [p.lat, p.lon]);
+
+                return(
+                    <Polyline pathOptions={{ fillColor: colors[index], color: colors[index] }} positions={points} />
+                )
+            });
+        // }
                 
         return(
             <MapContainer
-                //center={[this.state.lat, this.state.long]}
-                center={[47.37635575792042, 9.548300497691613]} 
-                zoom={5}
+                // center={[this.state.lat, this.state.long]}
+                // center={[47.37635575792042, 9.548300497691613]} 
+                zoom={9}
                 scrollWheelZoom={true} 
                 className='map' >
-                
+                <ChangeView center={[this.state.lat, this.state.long]} zoom={13} /> 
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                 
-                <Polyline pathOptions={{ fillColor: 'red', color: 'blue' }} 
-	                positions={points}
-                    
-                />
+                {polylineList}
 
             </MapContainer>
         )
     };
+}
+
+function ChangeView({ center, zoom }) {
+    const map = useMap();
+    map.setView(center, zoom);
+    return null;
 }
 
 export default Map; 

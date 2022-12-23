@@ -14,8 +14,8 @@
 
 
 ## Map
-1. Change single track to an array with a single track
-2. Support for multiple tracks in map rendering (loop for Polyline?!?)
+1. DONE ~ Change single track to an array with a single track
+2. DONE ~ Support for multiple tracks in map rendering (loop for Polyline?!?)
 3. Add levels to the map
 4. Add fullscreen button
 
