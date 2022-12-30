@@ -21,7 +21,7 @@ class App extends Component {
                         <Map tracksArray={this.state.trackList}/>
                     </div>
                     <div className="list-container">
-                        <TrackList tracksArray={this.state.trackList}/>
+                        <TrackList tracksArray={this.state.trackList} onTrackRemove={this.onTrackRemove.bind(this)}/>
                         <DragAndDropZone onFileDrop={this.onFileDrop.bind(this)}/>
                     </div>
                 </div>
@@ -38,6 +38,13 @@ class App extends Component {
         this.state.trackList.push(parsedTrack);
         
         this.setState({trackList: this.state.trackList});
+    }
+
+    onTrackRemove(elem){
+        console.log("onTrackRemove");
+        console.log(elem);
+
+        this.setState({trackList: this.state.trackList.filter(t => t !== elem)});
     }
 
 }

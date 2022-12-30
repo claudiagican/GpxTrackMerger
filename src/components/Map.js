@@ -36,7 +36,7 @@ class Map extends Component {
                 points = elem.tracks[0].points.map(p => [p.lat, p.lon]);
 
                 return(
-                    <Polyline pathOptions={{ fillColor: colors[index], color: colors[index] }} positions={points} />
+                    <Polyline pathOptions={{ fillColor: colors[index], color: colors[index] }} positions={points} key={index}/>
                 )
             });
         // }

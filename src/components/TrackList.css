@@ -1,0 +1,10 @@
+.list-tracks {
+    display: flex;
+    flex-direction:column;
+    height:100%;
+    /* background-color: #b41010; */
+}
+
+.list-tracks-elem {
+    background-color: #b41010;
+}

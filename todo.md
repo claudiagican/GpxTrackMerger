@@ -21,10 +21,11 @@
 
 ## List
 1. DONE ~ Display info from track (name, length, elevation etc)
-2. Add delete track functionality (button + action)
-3. Add Merge & Save functionality (button + action)
+2. DONE ~ Make a new component for the list elements
+3. DONE ~ Add delete track functionality (button + action)
+4. Add Merge & Save functionality (button + action)
     * as JPG or track?!?
-4. Add crop track functionality (button + action)
+5. Add crop track functionality (button + action)
     * New component
     + bar with options start / end 
     + save button for the new gpx
