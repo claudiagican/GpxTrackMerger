@@ -4,7 +4,6 @@ import classes from "./TrackList.css"
 class TrackList extends Component{
 
     render(){
-        console.log("trackList map render...");
         var elemList = null;
         
         if (this.props.tracksArray.length != 0){
@@ -12,7 +11,7 @@ class TrackList extends Component{
             elemList = this.props.tracksArray.map((elem, index) =>
             {
                 return(
-                    <TrackListItem elem={elem} index={index} onTrackRemove={this.props.onTrackRemove}/>
+                    <TrackListItem elem={elem} key={index} onTrackRemove={this.props.onTrackRemove}/>
                 )
             })
         }
@@ -20,7 +19,7 @@ class TrackList extends Component{
         return(
             <div>Your gpx tracks 
 
-                <ol class="list-tracks">
+                <ol className="list-tracks">
                     {elemList}               
                 </ol>
             </div>
@@ -34,12 +33,11 @@ class TrackListItem extends Component{
     render(){
 
         var trackElem = this.props.elem.tracks[0];
-        console.log(this.props.index);
 
         return(
-            <li key={this.props.index}>
+            <li>
                 
-                <div class="list-tracks-elem">
+                <div className="list-tracks-elem">
                     <p>Name: {trackElem.name}</p>
                     <p>Distance: {parseFloat(trackElem.distance.total / 1000).toFixed(2)}km</p>
                     <p>Elevation: {parseFloat(trackElem.elevation.max).toFixed(2)}m+</p>

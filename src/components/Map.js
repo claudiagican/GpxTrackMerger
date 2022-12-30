@@ -6,7 +6,7 @@ import gpxParser from 'gpxparser'
 
 class Map extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {lat:0, long:0};
         this.getLocation();
@@ -14,53 +14,77 @@ class Map extends Component {
 
     getLocation() {
         if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(position => {
-              this.setState({lat:position.coords.latitude, long:position.coords.longitude});
-          });
+            navigator.geolocation.getCurrentPosition(position => {
+                console.log("getLocation...");
+                this.setState({lat:position.coords.latitude, long:position.coords.longitude});
+            });
         } 
     };
 
-    render (){
+    render() {
         
         console.log("map render...");
         console.log(this.state.lat + " - " + this.state.long);
-        console.log( this.props.tracksArray);
+        console.log(this.props.tracksArray);
+        
         var points = [];
         var polylineList;
-        var colors = ['red', 'blue', 'green', 'yellow'];
+        var colors = ['Red', 'Blue', 'Green', 'Yellow', 'SlateBlue', 'Purple', 'Lime', 'Fuchsia', 'Maroon', 'Aqua'];
+        var latMin = this.state.lat, latMax = this.state.lat, longMin = this.state.long, longMax = this.state.long;
 
-        // if (this.props.tracksArray.length != 0){
+        polylineList = this.props.tracksArray.map((elem, index) =>
+        {
+            points = elem.tracks[0].points.map(p => [p.lat, p.lon]);
 
-            polylineList = this.props.tracksArray.map((elem, index) =>
-            {
-                points = elem.tracks[0].points.map(p => [p.lat, p.lon]);
+            // TODO to move in a method and use properly
+            latMin = Math.min(...points.map(p => p[0]));
+            latMax = Math.max(...points.map(p => p[0]));
+            longMin = Math.min(...points.map(p => p[1]));
+            longMax = Math.max(...points.map(p => p[1]));
 
-                return(
-                    <Polyline pathOptions={{ fillColor: colors[index], color: colors[index] }} positions={points} key={index}/>
-                )
-            });
-        // }
-                
+            return (
+                <Polyline pathOptions={{ fillColor: colors[index], color: colors[index] }} positions={points} key={index}/>
+            )
+        });
+
+               
         return(
-            <MapContainer
-                // center={[this.state.lat, this.state.long]}
-                // center={[47.37635575792042, 9.548300497691613]} 
-                zoom={9}
-                scrollWheelZoom={true} 
-                className='map' >
-                <ChangeView center={[this.state.lat, this.state.long]} zoom={13} /> 
+            <MapContainer scrollWheelZoom={true} className='map'>
+                
+                <ChangeBounds bounds={[latMin, latMax, longMin, longMax]}/>
+                
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                 
                 {polylineList}
-
+             
             </MapContainer>
         )
     };
 }
 
-function ChangeView({ center, zoom }) {
+function ChangeBounds({bounds}){
+
+    if(bounds[0] == 0) 
+        return null;
+
     const map = useMap();
-    map.setView(center, zoom);
+
+    if (bounds[0] == bounds[1]) { 
+        map.setView([bounds[0],  bounds[2]], 9);
+    } else {
+        var currentBounds = map.getBounds();
+        
+        console.log(currentBounds);
+        
+        currentBounds.getSouthWest().lat = bounds[0];
+        currentBounds.getSouthWest().lng = bounds[2];
+        
+        currentBounds.getNorthEast().lat = bounds[1];
+        currentBounds.getNorthEast().lng = bounds[3];
+        
+        map.fitBounds(currentBounds);
+    }
+
     return null;
 }
 

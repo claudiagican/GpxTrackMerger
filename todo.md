@@ -5,19 +5,15 @@
 
 ***
 
-* 19.12 - M1, L1
-* 20.12 - M2, D1
-* 21.12 - M2
-* 22.12 - L2
-* 23.12 - 
-* 24.12 - CSS final touch
-
-
 ## Map
 1. DONE ~ Change single track to an array with a single track
 2. DONE ~ Support for multiple tracks in map rendering (loop for Polyline?!?)
 3. Add levels to the map
 4. Add fullscreen button
+5. [DONE] Center on last loaded track
+6. Center on the selected track
+7. After delete, don't change map position.
+8. Button to fit bounds all.
 
 ## List
 1. DONE ~ Display info from track (name, length, elevation etc)
@@ -29,6 +25,7 @@
     * New component
     + bar with options start / end 
     + save button for the new gpx
+6. Styling
 
 ## Drag & Drop
 1. Checks upon drop file: extention .gpx, dimension, content
