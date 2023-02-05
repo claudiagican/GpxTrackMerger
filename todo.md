@@ -6,8 +6,8 @@
 ***
 
 ## Map
-1. DONE ~ Change single track to an array with a single track
-2. DONE ~ Support for multiple tracks in map rendering (loop for Polyline?!?)
+1. [DONE] Change single track to an array with a single track
+2. [DONE] Support for multiple tracks in map rendering (loop for Polyline?!?)
 3. Add levels to the map
 4. Add fullscreen button
 5. [DONE] Center on last loaded track
@@ -16,9 +16,9 @@
 8. Button to fit bounds all.
 
 ## List
-1. DONE ~ Display info from track (name, length, elevation etc)
-2. DONE ~ Make a new component for the list elements
-3. DONE ~ Add delete track functionality (button + action)
+1. [DONE] Display info from track (name, length, elevation etc)
+2. [DONE] Make a new component for the list elements
+3. [DONE] Add delete track functionality (button + action)
 4. Add Merge & Save functionality (button + action)
     * as JPG or track?!?
 5. Add crop track functionality (button + action)
