@@ -1,6 +1,7 @@
 {
   "name": "gpxtrackmerger",
   "version": "1.0.0",
+  "homepage": "https://claudiagican.github.io/gpxtrackmerger/",
   "description": "GPX Track Merger",
   "main": "index.js",
   "dependencies": {
@@ -13,7 +14,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d build",
+    "build": "react-scripts build"
   },
   "author": "Claudia",
   "license": "ISC",
@@ -28,5 +31,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
