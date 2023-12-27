@@ -1,7 +1,4 @@
 # TODO
-* clean code
-* deploy to GitHub
-* available at URL
 
 ***
 
@@ -11,7 +8,7 @@
 3. Add levels to the map
 4. Add fullscreen button
 5. [DONE] Center on last loaded track
-6. Center on the selected track
+6. Make track element selectable in list and center the map on it
 7. After delete, don't change map position.
 8. Button to fit bounds all.
 
@@ -25,34 +22,9 @@
     * New component
     + bar with options start / end 
     + save button for the new gpx
-6. Styling
+6. Use the same color as the track has on the map
 
 ## Drag & Drop
 1. Checks upon drop file: extention .gpx, dimension, content
 2. Change messages depending on number of tracks already loaded
 3. 
-_________________
-
-
-_________________
-# Samples
-
-<!-- comment -->
-
-Some basic Git commands are:
-```
-git status
-git add
-git commit
-```
-
-Code block
-
-        <html>
-          <head>
-            <title>Test</title>
-          </head>
-
-_________________
-
-My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
