@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/gpxtrackmerger/static/css/main.893587d3.css",
+    "main.js": "/gpxtrackmerger/static/js/main.f10031b5.js",
+    "index.html": "/gpxtrackmerger/index.html",
+    "main.893587d3.css.map": "/gpxtrackmerger/static/css/main.893587d3.css.map",
+    "main.f10031b5.js.map": "/gpxtrackmerger/static/js/main.f10031b5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.893587d3.css",
+    "static/js/main.f10031b5.js"
+  ]
+}
