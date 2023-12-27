@@ -17,7 +17,7 @@ class TrackList extends Component{
         }
 
         return(
-            <div>Your gpx tracks 
+            <div>Your GPX tracks 
 
                 <ol className="list-tracks">
                     {elemList}               
@@ -39,8 +39,9 @@ class TrackListItem extends Component{
                 
                 <div className="list-tracks-elem">
                     <p>Name: {trackElem.name}</p>
-                    <p>Distance: {parseFloat(trackElem.distance.total / 1000).toFixed(2)}km</p>
-                    <p>Elevation: {parseFloat(trackElem.elevation.max).toFixed(2)}m+</p>
+                    <p><span>Distance {parseFloat(trackElem.distance.total / 1000).toFixed(2)}km. </span>
+                    <span>Elevation {parseFloat(trackElem.elevation.max).toFixed(2)}m+</span>
+                    </p>
                     
                     <button type="button" onClick={() => this.props.onTrackRemove(this.props.elem)}>
                         Remove

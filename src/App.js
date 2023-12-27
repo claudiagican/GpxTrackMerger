@@ -15,7 +15,7 @@ class App extends Component {
         
         return(
             <>
-                <h1>GPX Tools</h1>
+                <h1>Tracks Merger</h1>
                 <div className="map-list-container">
                     <div className="map-container">
                         <Map tracksArray={this.state.trackList}/>
@@ -32,7 +32,7 @@ class App extends Component {
     onFileDrop(file){
         console.log("onFileDrop");
         
-        var parsedTrack = new gpxParser();
+        const parsedTrack = new gpxParser();
         parsedTrack.parse(file);
 
         this.state.trackList.push(parsedTrack);

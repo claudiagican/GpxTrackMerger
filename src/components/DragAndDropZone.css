@@ -1,10 +1,9 @@
 #form-file-upload {
-    height: 16rem;
+    height: 8rem;
     width: 28rem;
     max-width: 100%;
     text-align: center;
     position: relative;
-    border: solid 1px grey;
   }
   
   #input-file-upload {
@@ -48,5 +47,5 @@
     top: 0px;
     right: 0px;
     bottom: 0px;
-    left: 0px;
+    left: 5px;
   }
