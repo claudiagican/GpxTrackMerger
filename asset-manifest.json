@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/gpxtrackmerger/static/css/main.9bd513be.css",
-    "main.js": "/gpxtrackmerger/static/js/main.d3517f85.js",
-    "index.html": "/gpxtrackmerger/index.html",
-    "main.9bd513be.css.map": "/gpxtrackmerger/static/css/main.9bd513be.css.map",
-    "main.d3517f85.js.map": "/gpxtrackmerger/static/js/main.d3517f85.js.map"
+    "main.css": "/GpxTrackMerger/static/css/main.9bd513be.css",
+    "main.js": "/GpxTrackMerger/static/js/main.d3517f85.js",
+    "index.html": "/GpxTrackMerger/index.html",
+    "main.9bd513be.css.map": "/GpxTrackMerger/static/css/main.9bd513be.css.map",
+    "main.d3517f85.js.map": "/GpxTrackMerger/static/js/main.d3517f85.js.map"
   },
   "entrypoints": [
     "static/css/main.9bd513be.css",
