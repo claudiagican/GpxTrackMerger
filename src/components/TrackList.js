@@ -36,14 +36,13 @@ class TrackListItem extends Component{
 
         return(
             <li>
-                
                 <div className="list-tracks-elem">
-                    <p>Name: {trackElem.name}</p>
-                    <p><span>Distance {parseFloat(trackElem.distance.total / 1000).toFixed(2)}km. </span>
-                    <span>Elevation {parseFloat(trackElem.elevation.max).toFixed(2)}m+</span>
-                    </p>
+                    <code><span>Name: {trackElem.name}</span><br/>
+                    <span>Distance: {parseFloat(trackElem.distance.total / 1000).toFixed(2)}km.</span><br/>
+                    <span>Elevation: {parseFloat(trackElem.elevation.max).toFixed(2)}m+</span><br/>
+                    </code>
                     
-                    <button type="button" onClick={() => this.props.onTrackRemove(this.props.elem)}>
+                    <button type="button" onClick={() => this.props.onTrackRemove(this.props.elem)} className="btnRemove">
                         Remove
                     </button>
                 </div>

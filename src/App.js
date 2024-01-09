@@ -15,7 +15,11 @@ class App extends Component {
         
         return(
             <>
-                <h1>Tracks Merger</h1>
+                <div className="greeting">
+                    <h1>Tracks Merger</h1>
+                    <h2>put together your GPX tracks</h2>
+                </div>
+
                 <div className="map-list-container">
                     <div className="map-container">
                         <Map tracksArray={this.state.trackList}/>

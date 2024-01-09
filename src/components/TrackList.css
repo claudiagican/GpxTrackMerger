@@ -2,9 +2,17 @@
     display: flex;
     flex-direction:column;
     height:100%;
+    row-gap: 10px;
+    padding-inline-start: 20px;
+    list-style-type: square;
 }
 
 .list-tracks-elem {
     background-color: #c7e2b7;
+}
+
+.btnRemove{
+    border: none;
+    align-self: right;
 }
 

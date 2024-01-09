@@ -2,7 +2,10 @@ import 'leaflet/dist/leaflet.css'
 import classes from "./Map.css"
 import React, { Component } from 'react'
 import { MapContainer, Polyline, TileLayer, useMap } from 'react-leaflet'
+import { FullscreenControl } from 'react-leaflet-fullscreen'
 import gpxParser from 'gpxparser'
+import "react-leaflet-fullscreen/styles.css"
+
 
 class Map extends Component {
 
@@ -54,6 +57,8 @@ class Map extends Component {
                 <ChangeBounds bounds={[latMin, latMax, longMin, longMax]}/>
                 
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+
+                <FullscreenControl />
                 
                 {polylineList}
              
