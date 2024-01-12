@@ -25,6 +25,4 @@
 7. Hide/Unhide the panel with List and Drag&Drop
 
 ## Drag & Drop
-1. Checks upon drop file: extention .gpx, dimension, content
-2. Change messages depending on number of tracks already loaded
-3. 
+1. [DONE] Checks upon drop file: extention .gpx, dimension, content

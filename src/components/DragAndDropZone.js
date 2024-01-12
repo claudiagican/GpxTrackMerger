@@ -23,8 +23,19 @@ function DragAndDropZone(props) {
     setDragActive(false);
     
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      console.log("handleDrop ");
-      handleFile(e.dataTransfer.files[0]);
+
+      console.log("handleDrop ", e.dataTransfer.files[0]);
+
+      const file = e.dataTransfer.files[0];
+      const fileExtension = file.name.split('.').pop().toLowerCase();
+      var fileSize = (file.size / 1024 / 1024).toFixed(2);
+      
+      if (fileExtension === 'gpx' && fileSize < 5) { // 5MB
+        handleFile(file);
+      } else {
+        e.dataTransfer.dropEffect = "none";
+      }
+
     }
   };
 
@@ -55,11 +66,12 @@ function DragAndDropZone(props) {
   return (
     <>
       <form id="form-file-upload" onDragEnter={handleDrag} onSubmit={(e) => e.preventDefault()}>
-        <input ref={inputRef} type="file" id="input-file-upload" multiple={true} onChange={handleWithClick} />
+        <input ref={inputRef} type="file" accept=".gpx" id="input-file-upload" multiple={true} onChange={handleWithClick} />
         <label id="label-file-upload" htmlFor="input-file-upload" className={dragActive ? "drag-active" : ""}>
           <div>
-            <p>Drag and drop</p>
-            <button className="upload-button" onClick={onButtonClick}>or Upload a file</button>
+            <p>Drag and drop a .gpx file</p>
+            <button className="upload-button" onClick={onButtonClick}>or Upload</button>
+            <p><small>(less than 5MB)</small></p>
           </div>
         </label>
         {dragActive && <div id="drag-file-element" onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}></div>}

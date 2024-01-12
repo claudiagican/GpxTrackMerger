@@ -1,7 +1,7 @@
 {
-  "name": "gpxtrackmerger",
+  "name": "GpxTrackMerger",
   "version": "1.0.0",
-  "homepage": "https://claudiagican.github.io/gpxtrackmerger/",
+  "homepage": "https://claudiagican.github.io/GpxTrackMerger/",
   "description": "GPX Track Merger",
   "main": "index.js",
   "dependencies": {
