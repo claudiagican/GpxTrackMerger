@@ -9,6 +9,7 @@
 
 .list-tracks-elem {
     background-color: #c7e2b7;
+    border-top: 4px solid;
 }
 
 .btnRemove{

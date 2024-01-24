@@ -32,12 +32,14 @@ class Map extends Component {
         
         var points = [];
         var polylineList;
-        var colors = ['Red', 'Blue', 'Green', 'Yellow', 'SlateBlue', 'Purple', 'Lime', 'Fuchsia', 'Maroon', 'Aqua'];
         var latMin = this.state.lat, latMax = this.state.lat, longMin = this.state.long, longMax = this.state.long;
 
         polylineList = this.props.tracksArray.map((elem, index) =>
         {
-            points = elem.tracks[0].points.map(p => [p.lat, p.lon]);
+            var trackColor = elem.objColor;
+            var trackElem = elem.objGpx.tracks[0];
+
+            points = trackElem.points.map(p => [p.lat, p.lon]);
 
             // TODO to move in a method and use properly
             latMin = Math.min(...points.map(p => p[0]));
@@ -46,7 +48,7 @@ class Map extends Component {
             longMax = Math.max(...points.map(p => p[1]));
 
             return (
-                <Polyline pathOptions={{ fillColor: colors[index], color: colors[index] }} positions={points} key={index}/>
+                <Polyline pathOptions={{ fillColor: trackColor, color: trackColor }} positions={points} key={index}/>
             )
         });
 

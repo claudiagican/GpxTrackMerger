@@ -32,11 +32,12 @@ class TrackList extends Component{
 class TrackListItem extends Component{
     render(){
 
-        var trackElem = this.props.elem.tracks[0];
+        var trackColor = this.props.elem.objColor;
+        var trackElem = this.props.elem.objGpx.tracks[0];
 
         return(
             <li>
-                <div className="list-tracks-elem">
+                <div className="list-tracks-elem" style={{borderColor: trackColor}}>
                     <code><span>Name: {trackElem.name}</span><br/>
                     <span>Distance: {parseFloat(trackElem.distance.total / 1000).toFixed(2)}km.</span><br/>
                     <span>Elevation: {parseFloat(trackElem.elevation.max).toFixed(2)}m+</span><br/>

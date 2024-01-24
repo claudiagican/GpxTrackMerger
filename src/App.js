@@ -8,7 +8,7 @@ class App extends Component {
 
     constructor(props){
         super(props);
-        this.state = {trackList : []};
+        this.state = {trackList : [], currentTrackIndex : 0};
     }
 
     render (){
@@ -39,9 +39,16 @@ class App extends Component {
         const parsedTrack = new gpxParser();
         parsedTrack.parse(file);
 
-        this.state.trackList.push(parsedTrack);
+        const colors = ['Red', 'Blue', 'Green', 'Yellow', 'SlateBlue', 'Purple', 'Lime', 'Fuchsia', 'Maroon', 'Aqua'];
+
+        const objTrack = {
+            objGpx : parsedTrack,
+            objColor : colors[this.state.currentTrackIndex]
+        }
+
+        this.state.trackList.push(objTrack);
         
-        this.setState({trackList: this.state.trackList});
+        this.setState({trackList: this.state.trackList, currentTrackIndex: this.state.currentTrackIndex + 1});
     }
 
     onTrackRemove(elem){

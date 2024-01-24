@@ -21,7 +21,7 @@
     * New component
     + bar with options start / end 
     + save button for the new gpx
-6. Use the same color as the track has on the map
+6. [DONE] Use the same color as the track has on the map
 7. Hide/Unhide the panel with List and Drag&Drop
 
 ## Drag & Drop
